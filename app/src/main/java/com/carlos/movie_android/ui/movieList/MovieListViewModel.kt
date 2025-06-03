@@ -1,4 +1,4 @@
-package com.carlos.movie_android.ui.home
+package com.carlos.movie_android.ui.movieList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.carlos.movie_android.models.MovieModel
 import com.carlos.movie_android.repositories.MovieRepository
 
-class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
+class MovieListViewModel(private val repository: MovieRepository) : ViewModel() {
 
     private val _movies = MutableLiveData<List<MovieModel>>()
     val movies: LiveData<List<MovieModel>> = _movies

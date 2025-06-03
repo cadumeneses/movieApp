@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imageViewMoviePoster"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:background="#CCCCCC"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="@string/p_ster_do_filme" />
+
+        <TextView
+            android:id="@+id/textViewMovieTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            app:layout_constraintStart_toEndOf="@id/imageViewMoviePoster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Título do Filme Longo Demais para Caber" />
+
+        <TextView
+            android:id="@+id/textViewMovieYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            app:layout_constraintStart_toEndOf="@id/imageViewMoviePoster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewMovieTitle"
+            tools:text="Ano: 2023" />
+
+        <TextView
+            android:id="@+id/textViewMovieGenre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            app:layout_constraintStart_toEndOf="@id/imageViewMoviePoster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewMovieYear"
+            tools:text="Gênero: Ação, Aventura" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
