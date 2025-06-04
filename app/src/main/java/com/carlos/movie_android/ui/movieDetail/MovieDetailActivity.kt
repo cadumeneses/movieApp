@@ -1,11 +1,14 @@
 package com.carlos.movie_android.ui.movieDetail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.carlos.movie_android.repositories.MovieRepository
 import com.bumptech.glide.Glide
+import com.carlos.movie_android.R
 import com.carlos.movie_android.databinding.ActivityMovieDetailBinding
 
 class MovieDetailActivity : AppCompatActivity() {
@@ -16,15 +19,17 @@ class MovieDetailActivity : AppCompatActivity() {
         const val EXTRA_MOVIE_ID = "extra_movie_id"
     }
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        viewModel = ViewModelProvider(this, MovieDetailViewModelFactory(MovieRepository()))[MovieDetailViewModel::class.java]
 
-        viewModel = ViewModelProvider(this, MovieDetailViewModelFactory(MovieRepository()))
-            .get(MovieDetailViewModel::class.java)
+        binding.buttonBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         val movieId = intent.getStringExtra(EXTRA_MOVIE_ID)
 
@@ -36,10 +41,10 @@ class MovieDetailActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observeViewModel() {
         viewModel.movie.observe(this) { movie ->
             movie?.let {
-                // Atualiza os elementos da UI com os detalhes do filme
                 binding.textViewDetailTitle.text = it.title
                 binding.textViewDetailYear.text = "Ano: ${it.year}"
                 binding.textViewDetailGenre.text = "Gênero: ${it.genre}"
