@@ -5,4 +5,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="filmes_populares">Filmes Populares</string>
     <string name="p_ster_do_filme">Pôster do Filme</string>
+    <string name="voltar">Voltar</string>
+    <string name="carlos_movie_app">Carlos Movie App</string>
 </resources>
